@@ -455,13 +455,10 @@ button:disabled {
 }
 
 
+
 /* More Responsive Tweaks for Larger Screens */
 
 @media (max-width: 768px) {
-  body {
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-  }
-
   .scene {
     flex-direction: column; /* Stack elements vertically */
     gap: 10px; /* Minimal space between elements */
@@ -504,35 +501,21 @@ button:disabled {
 
 /* For mobile screens */
 @media (max-width: 480px) {
-  body {
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    margin: 0; /* Remove any default margins */
-    padding: 0; /* Remove any default padding */
-  }
-
   .scene {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
+    padding: 5px; /* Add minimal padding */
     gap: 5px; /* Tight spacing between elements */
-    width: 100%; /* Ensure scene takes full width */
-    height: 100vh; /* Ensure scene takes full height */
-    overflow: hidden; /* Prevent any overflow */
   }
 
   .planet, .sun {
-    width: 100%; /* Ensure the planets don't overflow */
-    max-width: 200px; /* Prevent overflow */
-    height: auto; /* Maintain aspect ratio */
+    width: 200px; /* Compact size */
+    height: 200px;
     margin: 5px 0; /* Tight vertical spacing */
   }
-
   .luna {
-    width: 100%; /* Ensure luna doesn't overflow */
-    max-width: 100px; /* Prevent overflow */
-    height: auto; /* Maintain aspect ratio */
+    width: 100px; /* Compact size */
+    height: 100px;
     margin: 5px 0; /* Tight vertical spacing */
   }
-
   .text-box {
     font-size: 14px; /* Smaller font */
     width: 90%; /* Utilize most of the screen width */
@@ -546,7 +529,7 @@ button:disabled {
   }
 
   button {
-    width: 100%; /* Full width buttons */
+    width: 50%; /* Full width buttons */
     font-size: 14px; /* Adjust font size */
     padding: 8px 10px; /* Compact padding */
     margin: 5px 0; /* Tight vertical spacing */
@@ -562,6 +545,5 @@ button:disabled {
     gap: 5px; /* Minimal space between buttons */
   }
 }
-
 
 /* For larger screens (desktop or wider devices) */
