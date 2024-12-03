@@ -506,11 +506,17 @@ button:disabled {
 @media (max-width: 480px) {
   body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any default padding */
   }
 
   .scene {
-    padding: 5px; /* Add minimal padding */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
     gap: 5px; /* Tight spacing between elements */
+    width: 100%; /* Ensure scene takes full width */
+    height: 100vh; /* Ensure scene takes full height */
+    overflow: hidden; /* Prevent any overflow */
   }
 
   .planet, .sun {
