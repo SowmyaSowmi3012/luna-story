@@ -501,11 +501,20 @@ button:disabled {
 
 /* For mobile screens */
 @media (max-width: 480px) {
-  .scene {
-    padding: 5px; /* Add minimal padding */
-    gap: 5px; /* Tight spacing between elements */
+  body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any default padding */
   }
 
+  .scene {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    gap: 5px; /* Tight spacing between elements */
+    width: 100%; /* Ensure scene takes full width */
+    height: 100vh; /* Ensure scene takes full height */
+    overflow: hidden; /* Prevent any overflow */
+  }
   .planet, .sun {
     width: 200px; /* Compact size */
     height: 200px;
