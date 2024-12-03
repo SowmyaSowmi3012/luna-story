@@ -553,6 +553,22 @@ button:disabled {
     flex-direction: column; /* Stack navigation buttons */
     gap: 5px; /* Minimal space between buttons */
   }
+    /* Ensure Scene 4 is fully visible in mobile */
+  .scene-4 {
+    width: 100%; /* Ensure Scene 4 takes full width */
+    height: auto; /* Adjust height dynamically */
+    padding: 10px; /* Adjust padding */
+    overflow: hidden; /* Prevent overflow */
+    margin-top: 10px; /* Add space at the top */
+  }
+
+  .scene-4 .content {
+    display: flex;
+    flex-direction: column; /* Stack the content */
+    align-items: center; /* Center content */
+    justify-content: center; /* Center content vertically */
+    width: 100%; /* Make sure it fits the full width */
+  }
 }
 
 /* For larger screens (desktop or wider devices) */
