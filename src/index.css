@@ -508,7 +508,7 @@ button:disabled {
 
   .planet, .sun {
     width: 200px; /* Compact size */
-    height: 100px;
+    height: 200px;
     margin: 5px 0; /* Tight vertical spacing */
   }
   .luna {
@@ -529,7 +529,7 @@ button:disabled {
   }
 
   button {
-    width: 100%; /* Full width buttons */
+    width: 50%; /* Full width buttons */
     font-size: 14px; /* Adjust font size */
     padding: 8px 10px; /* Compact padding */
     margin: 5px 0; /* Tight vertical spacing */
