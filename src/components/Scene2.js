@@ -6,13 +6,9 @@ const Scene2 = ({ setCurrentScene }) => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [showNextSceneButton, setShowNextSceneButton] = useState(false);
   const [isSceneVisible, setIsSceneVisible] = useState(false); // Track scene visibility
-  const [sunPosition, setSunPosition] = useState({ x: 0, y: 0 });
-  const [isLunaSmiling, setIsLunaSmiling] = useState(false); // Track Luna's smile state
-  const [isLunaBlinking, setIsLunaBlinking] = useState(false); // Track Luna's blinking state
-  const [isSunWinking, setIsSunWinking] = useState(false); // Track Sun's wink state
   const sceneRef = useRef(null); // Reference to Scene2 div
-
-  // Text messages for Scene 2
+  const [isSunWinking, setIsSunWinking] = useState(false); // Track Sun's wink state
+  const [sunPosition, setSunPosition] = useState({ x: 0, y: 0 });
   const textMessages = [
     "Sol encouraged Luna to find her light...",
     "In the vast cosmos, she needed to shine brighter to stand out.",
@@ -21,7 +17,6 @@ const Scene2 = ({ setCurrentScene }) => {
     "Would Luna succeed? The universe was watching.",
   ];
 
-  // Start cycling text messages only when Scene2 is visible
   useEffect(() => {
     let timer;
     if (isSceneVisible) {
@@ -31,19 +26,18 @@ const Scene2 = ({ setCurrentScene }) => {
         } else {
           setShowNextSceneButton(true); // Show "Next Scene" button after all texts
         }
-      }, 9000); // Change text every 9 seconds
+      }, 9000);
     }
 
     return () => clearInterval(timer); // Cleanup timer on unmount
   }, [currentTextIndex, isSceneVisible]);
 
-  // Observe visibility of Scene2
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsSceneVisible(entry.isIntersecting); // Update visibility status
+        setIsSceneVisible(entry.isIntersecting);
       },
-      { threshold: 0.5 } // Trigger when 50% of Scene2 is visible
+      { threshold: 0.5 }
     );
 
     if (sceneRef.current) {
@@ -55,52 +49,23 @@ const Scene2 = ({ setCurrentScene }) => {
     };
   }, []);
 
-  // Handle the Sun's wink animation
-  useEffect(() => {
-    const winkTimer = setInterval(() => {
-      setIsSunWinking((prev) => !prev); // Toggle Sun wink every 3 seconds
-    }, 3000);
-
-    return () => clearInterval(winkTimer); // Cleanup wink timer
-  }, []);
-   // Simulate Luna's blinking and smiling
-   useEffect(() => {
-    const blinkTimer = setInterval(() => {
-      setIsLunaBlinking((prev) => !prev); // Toggle blinking every 2 seconds
-    }, 2000);
-
-    const smileTimer = setInterval(() => {
-      setIsLunaSmiling((prev) => !prev); // Toggle smiling every 3 seconds (when Sun winks)
-    }, 3000);
-
-    return () => {
-      clearInterval(blinkTimer); // Cleanup blink timer
-      clearInterval(smileTimer); // Cleanup smile timer
-    };
-  }, [isSunWinking]);
-
-
-
   // Navigate to next scene and handle smooth scroll
   const goToNextScene = (e) => {
-    e.preventDefault(); // Prevent default button action (scroll)
+    e.preventDefault();
 
-    // Update current scene state to move to Scene 3
-    setCurrentScene(3);
+    setCurrentScene(3); // Move to Scene 3
 
-    // Scroll to the next scene manually
-    setTimeout(() => {
-      window.scrollTo({
-        top: window.innerHeight * 2, // Scroll to Scene 3
-        behavior: "smooth", // Smooth scroll
-      });
-    }, 200); // Allow time for the scene change to be triggered before scrolling
+    const nextScene = document.getElementById("scene3");
+    if (nextScene) {
+      nextScene.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
-    <div className="scene scene2" ref={sceneRef}>
-      {/* Sun Animation */}
-      <motion.div
+    <div id="scene2" className="scene scene2" ref={sceneRef}>
+      {/* Your animation and content for Scene 2 */}
+        {/* Sun Animation */}
+        <motion.div
         className="sun"
         animate={{
           scale: [1, 1.2, 1], // Pulsing effect
@@ -185,17 +150,13 @@ const Scene2 = ({ setCurrentScene }) => {
   }}
 />
       </motion.div>
-
-
       <FallingStars isActive={isSceneVisible} />
       {/* Cosmic Glow Effect */}
       <div className="cosmic-glow"></div>
-
-      {/* Using AnimatePresence for text box transitions */}
       <AnimatePresence>
         {isSceneVisible && (
           <motion.div
-            key={currentTextIndex} // Trigger re-render on text change
+            key={currentTextIndex}
             className="text-box"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -207,11 +168,11 @@ const Scene2 = ({ setCurrentScene }) => {
         )}
       </AnimatePresence>
 
-      {/* Show "Next Scene" Button after all text messages are displayed */}
+      {/* Show the "Next Scene" button */}
       {showNextSceneButton && (
         <motion.button
+          onClick={goToNextScene}
           className="next-scene-btn"
-          onClick={goToNextScene} // Prevent scroll and go to next scene
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}

@@ -79,6 +79,7 @@ const Scene4 = () => {
 
   return (
     <div
+      id="scene4"
       className="scene scene4"
       ref={sceneRef}
       style={{

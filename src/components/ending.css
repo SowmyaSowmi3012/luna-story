@@ -1,0 +1,137 @@
+/* Ending Page Styling */
+.ending-page {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(to bottom, #1e2a47, #283b60); /* Gradient background */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align content to the top */
+    text-align: center;
+    flex-direction: column;
+    padding: 20px 10px 20px 30px; /* Adjust padding */
+    box-sizing: border-box;
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+    height: 100%; /* Allow content to take up full height, but scroll if needed */
+}
+
+.ending-text {
+    font-size: 1.5rem;
+    font-family: 'Arial', sans-serif;
+}
+
+.ending-page h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    margin: 0;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+    color: #f39c12;
+}
+
+.story-summary, .story-moral {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-family: 'Arial', sans-serif;
+    color: #ddd;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.story-summary p, .story-moral p {
+    max-width: 100%;
+    margin: 0 auto;
+    opacity: 0.9;
+    display: block;
+}
+
+.restart-btn {
+    margin-top: 40px;
+    padding: 15px 30px;
+    font-size: 1.8rem;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    width: 100%;
+}
+
+.restart-btn:hover {
+    background-color: #e67e22;
+    transform: scale(1.05);
+}
+
+.restart-btn:active {
+    transform: scale(0.98);
+}
+
+/* Responsive Styling */
+
+/* For mobile devices in portrait (up to 480px) */
+@media (max-width: 480px) {
+    .ending-page {
+        padding: 15px 5px; /* Reduce padding for smaller screens */
+        min-height: auto; /* Allow content to take full height */
+    }
+
+    .ending-page h1 {
+        font-size: 1.8rem; /* Smaller heading for mobile */
+    }
+
+    h2 {
+        font-size: 1.4rem; /* Slightly smaller subtitle */
+    }
+
+    .story-summary, .story-moral {
+        font-size: 1rem; /* Smaller text for readability */
+        margin-top: 15px;
+    }
+
+    .restart-btn {
+        font-size: 1.4rem;
+        padding: 12px 24px;
+    }
+}
+
+/* For mobile devices in landscape (up to 768px) */
+@media (max-width: 768px) {
+    .ending-page {
+        overflow-y: auto;
+        padding: 20px 10px;
+        min-height: auto; /* Allow content to take full height */
+    }
+
+    .ending-page h1 {
+        font-size: 2.2rem; /* Adjust heading size */
+    }
+
+    h2 {
+        font-size: 1.6rem; /* Adjust subtitle size */
+    }
+
+    .story-summary, .story-moral {
+        font-size: 1.1rem; /* Make text a bit larger */
+    }
+
+    .restart-btn {
+        font-size: 1.6rem;
+        padding: 14px 28px;
+    }
+}
+
+/* Ensure the body allows scrolling when the content overflows */
+body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: scroll; /* Enable vertical scrolling */
+    height: auto; /* Ensure full height for mobile */
+}

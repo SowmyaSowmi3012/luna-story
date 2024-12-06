@@ -404,7 +404,73 @@ button:disabled {
   animation: fall linear infinite, twinkle 2s infinite;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
 }
+.background h1 {
+  animation: fadeInOut 6s ease-in-out infinite;
+  font-weight: 700;
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* Background animation for Scene0 */
+.scene0 .background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-family: 'Arial', sans-serif;
+  z-index: 1;
+}
 
+/* Flex container for text and button */
+.scene0 .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+/* Start button styles */
+.start-btn {
+  margin-top: 20px; /* Adds spacing between the text and button */
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  z-index: 2;
+}
+
+.start-btn:hover {
+  background-color: #e67e22;
+}
+.scene0 {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  background-color: #1e2a47; /* Dark background color */
+  overflow: hidden; /* Prevents scrollbars */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: #fff; /* Text color */
+  padding: 0;
+  margin: 0;
+}
 @keyframes fall {
   0% {
     transform: translateY(-100%) translateX(0);
@@ -515,21 +581,25 @@ button:disabled {
     height: 100vh; /* Ensure scene takes full height */
     overflow: hidden; /* Prevent any overflow */
   }
+
+  /* Adjust text-box positioning to be a little higher */
+  .text-box {
+    font-size: 14px; /* Smaller font */
+    width: 90%; /* Utilize most of the screen width */
+    padding: 8px; /* Reduced padding */
+    margin: 20px auto 100px auto; /* Push the text box upwards with negative margin */
+  }
+
   .planet, .sun {
     width: 200px; /* Compact size */
     height: 200px;
     margin: 5px 0; /* Tight vertical spacing */
   }
+
   .luna {
     width: 100px; /* Compact size */
     height: 100px;
     margin: 5px 0; /* Tight vertical spacing */
-  }
-  .text-box {
-    font-size: 14px; /* Smaller font */
-    width: 90%; /* Utilize most of the screen width */
-    padding: 8px; /* Reduced padding */
-    margin: 5px auto; /* Centered with reduced margin */
   }
 
   .slider-container {
@@ -553,7 +623,8 @@ button:disabled {
     flex-direction: column; /* Stack navigation buttons */
     gap: 5px; /* Minimal space between buttons */
   }
-    /* Ensure Scene 4 is fully visible in mobile */
+
+  /* Ensure Scene 4 is fully visible in mobile */
   .scene-4 {
     width: 100%; /* Ensure Scene 4 takes full width */
     height: auto; /* Adjust height dynamically */
@@ -570,5 +641,3 @@ button:disabled {
     width: 100%; /* Make sure it fits the full width */
   }
 }
-
-/* For larger screens (desktop or wider devices) */

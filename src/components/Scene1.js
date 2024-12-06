@@ -83,12 +83,11 @@ const Scene1 = ({ setCurrentScene }) => {
   }, []);
 
   // Navigate to next scene
-  const goToNextScene = (e) => {
-    e.preventDefault(); // Prevent scroll on click
-    setCurrentScene(2); // Transition to Scene 2
+  const goToNextScene = () => {
+    setCurrentScene(2);
     window.scrollTo({
-      top: window.innerHeight, // Scroll down to next scene manually
-      behavior: "smooth", // Smooth scroll
+      top: window.innerHeight * 2,
+      behavior: "smooth",
     });
   };
 

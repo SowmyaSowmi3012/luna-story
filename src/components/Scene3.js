@@ -1,25 +1,26 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Star from "./Star";
 import FallingStars from "./FallingStars";
 
 const Scene3 = ({ setCurrentScene }) => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [showNextSceneButton, setShowNextSceneButton] = useState(false);
   const [isSceneVisible, setIsSceneVisible] = useState(false); // Track scene visibility
+  const sceneRef = useRef(null);
   const [sunPosition, setSunPosition] = useState({ x: 0, y: 0 });
   const [isLunaSmiling, setIsLunaSmiling] = useState(false); // Track Luna's smile state
   const [isLunaBlinking, setIsLunaBlinking] = useState(false); // Track Luna's blinking state
   const [isSunWinking, setIsSunWinking] = useState(false); // Track Sun's wink state
-  const sceneRef = useRef(null);
+  // Text messages for Scene 3
   const textMessages = [
     "As Luna floated in the cosmic expanse, she saw a comet streak by...",
     "The comet twirled around her, inviting her to join in its cosmic dance.",
     "With every move, Luna’s glow grew brighter, learning to twinkle like the stars.",
     "The playful stars around her twinkled and danced, each sharing their own rhythm.",
-    "Luna embraced the dance, her glow shimmering across the cosmos."
+    "Luna embraced the dance, her glow shimmering across the cosmos.",
   ];
 
+  // Change text every 9 seconds
   useEffect(() => {
     let timer;
     if (isSceneVisible) {
@@ -55,23 +56,19 @@ const Scene3 = ({ setCurrentScene }) => {
 
   // Navigate to next scene and handle smooth scroll
   const goToNextScene = (e) => {
-    e.preventDefault(); // Prevent default button action (scroll)
+    e.preventDefault();
 
-    // Update current scene state to move to Scene 4
-    setCurrentScene(4);
+    setCurrentScene(3); // Move to Scene 3
 
-    // Scroll to the next scene manually
-    setTimeout(() => {
-      window.scrollTo({
-        top: window.innerHeight * 3, // Scroll to Scene 4 (assuming you have 4 scenes)
-        behavior: "smooth", // Smooth scroll
-      });
-    }, 200); // Allow time for the scene change to be triggered before scrolling
+    const nextScene = document.getElementById("scene4");
+    if (nextScene) {
+      nextScene.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
-    <div className="scene scene3" ref={sceneRef}>
-        <FallingStars isActive={isSceneVisible} />
+    <div id="scene3" className="scene scene3" ref={sceneRef}>
+      <FallingStars isActive={isSceneVisible} />
 
       {/* Comet Animation */}
       <motion.div
@@ -80,7 +77,7 @@ const Scene3 = ({ setCurrentScene }) => {
         animate={{ x: "120%", y: "-10%" }}
         transition={{ duration: 5, repeat: Infinity }}
       />
-    <motion.div
+      <motion.div
         className="luna"
         animate={{
           scale: isSunWinking ? 1.1 : 1, // Luna's reaction to Sun winking
