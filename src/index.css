@@ -261,25 +261,6 @@ body {
   z-index: 10; /* Ensure text box appears above other elements */
   bottom:80px;
 }
-.scene3 .next-scene-btn {
-  position: absolute;
-  bottom: 5%; /* Position the button lower */
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 10px 20px;
-  background-color: #ffcc00; /* Yellow button */
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 18px;
-  cursor: pointer;
-  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.6);
-  z-index: 5; /* Ensure button is above other elements */
-}
-
-.scene3 .next-scene-btn:hover {
-  background-color: #e5b000;
-}
 .scene4 {
   position: relative;
 }
