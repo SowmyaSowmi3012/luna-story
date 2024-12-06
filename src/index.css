@@ -115,7 +115,7 @@ body {
   z-index: 10; /* Ensure text box appears above other elements */
 }
 
-.scene2 .next-scene-btn {
+.next-scene-btn {
   position: absolute;
   bottom: 5%; /* Position the button lower */
   left: 50%;
@@ -131,7 +131,7 @@ body {
   z-index: 5; /* Ensure button is above other elements */
 }
 
-.scene2 .next-scene-btn:hover {
+.next-scene-btn:hover {
   background-color: #e5b000;
 }
 
